@@ -18,7 +18,8 @@ require_once 'includes/fct.inc.php';
 require_once 'includes/class.pdogsb.inc.php';
 session_start();
 $pdo = PdoGsb::getPdoGsb();
-$estConnecte = estConnecte();
+$estConnecte = estConnecte(); //détermine si l'utilisateur est connecté
+$estConnecte = estComptable($estConnecte); //détermine si l'utilisateur est comptable;
 require 'vues/v_entete.php';
 $uc = filter_input(INPUT_GET, 'uc', FILTER_SANITIZE_STRING);
 if ($uc && !$estConnecte) {
