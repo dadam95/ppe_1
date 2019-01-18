@@ -15,7 +15,14 @@
  */
 
 
+$profil = filter_input(INPUT_GET, 'profil', FILTER_SANITIZE_STRING);
 
+if(isset($_SESSION['visiteurSelectionne'])){
+    unset($_SESSION['visiteurSelectionne']);
+}
+if(isset($_SESSION['moisSelectionne'])){
+    unset($_SESSION['moisSelectionne']);
+}
 
 if ($estConnecte) {
     if($estComptable)
